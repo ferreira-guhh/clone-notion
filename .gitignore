@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment variables — NUNCA commitar isso
+.env
+.env.local
+.env.production
+
+# Editor
+.DS_Store
+.vscode/
+*.log
+
+# PWA
+dev-dist/

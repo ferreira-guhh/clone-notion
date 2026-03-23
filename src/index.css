@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =====================================================
+   TIPTAP EDITOR — rich text styles
+   ===================================================== */
+
+.notion-editor { color: inherit; }
+
+/* Headings */
+.notion-editor h1 { @apply text-3xl font-bold mt-7 mb-2 tracking-tight text-gray-900 dark:text-gray-50; }
+.notion-editor h2 { @apply text-2xl font-semibold mt-6 mb-1.5 text-gray-900 dark:text-gray-100; }
+.notion-editor h3 { @apply text-xl font-semibold mt-5 mb-1 text-gray-800 dark:text-gray-100; }
+
+/* Paragraphs */
+.notion-editor p { @apply my-1 leading-7 text-gray-800 dark:text-gray-200; }
+.notion-editor p.is-empty:first-child::before {
+  @apply text-gray-300 dark:text-gray-700 pointer-events-none float-left h-0;
+  content: attr(data-placeholder);
+}
+
+/* Lists */
+.notion-editor ul    { @apply list-disc   pl-6 my-2 space-y-1; }
+.notion-editor ol    { @apply list-decimal pl-6 my-2 space-y-1; }
+.notion-editor li    { @apply leading-7 text-gray-800 dark:text-gray-200; }
+.notion-editor li p  { @apply my-0; }
+
+/* Task list */
+.notion-editor ul[data-type="taskList"] { @apply list-none pl-1 space-y-1; }
+.notion-editor ul[data-type="taskList"] li {
+  @apply flex items-start gap-2;
+}
+.notion-editor ul[data-type="taskList"] li > label {
+  @apply flex items-center mt-0.5 flex-shrink-0;
+}
+.notion-editor ul[data-type="taskList"] li > label > input[type="checkbox"] {
+  @apply w-4 h-4 rounded border-gray-300 dark:border-gray-600 cursor-pointer accent-gray-900 dark:accent-white;
+}
+.notion-editor ul[data-type="taskList"] li > div { @apply flex-1 min-w-0; }
+.notion-editor ul[data-type="taskList"] li[data-checked="true"] > div p {
+  @apply line-through text-gray-400 dark:text-gray-600;
+}
+
+/* Blockquote */
+.notion-editor blockquote {
+  @apply border-l-4 border-gray-300 dark:border-gray-600
+         pl-4 py-0.5 my-4 rounded-r-lg
+         bg-gray-50 dark:bg-white/[0.03]
+         text-gray-600 dark:text-gray-400;
+}
+
+/* Inline code */
+.notion-editor code {
+  @apply font-mono text-[0.875em] px-1.5 py-0.5 rounded
+         bg-gray-100 dark:bg-white/10
+         text-rose-600 dark:text-rose-400;
+}
+
+/* Code block */
+.notion-editor pre {
+  @apply bg-gray-900 dark:bg-[#0d0d0d] rounded-xl p-4 my-4 overflow-x-auto;
+}
+.notion-editor pre code {
+  @apply bg-transparent text-gray-100 dark:text-gray-200 text-sm leading-relaxed p-0 font-mono;
+}
+
+/* Horizontal rule */
+.notion-editor hr {
+  @apply my-6 border-gray-200 dark:border-[#333];
+}
+
+/* Links */
+.notion-editor a {
+  @apply text-blue-500 dark:text-blue-400 underline cursor-pointer;
+}
+
+/* Highlight */
+.notion-editor mark {
+  @apply bg-yellow-200 dark:bg-yellow-900/50 rounded px-0.5;
+}
+
+/* Strong / em */
+.notion-editor strong { @apply font-semibold; }
+.notion-editor em     { @apply italic; }
+.notion-editor s      { @apply line-through; }
+.notion-editor u      { @apply underline; }
+
+/* Placeholder for empty editor */
+.notion-editor .is-editor-empty:first-child::before {
+  @apply text-gray-300 dark:text-gray-700 pointer-events-none float-left h-0;
+  content: attr(data-placeholder);
+}
+.notion-editor .is-empty::before {
+  @apply text-gray-300 dark:text-gray-700 pointer-events-none float-left h-0;
+  content: attr(data-placeholder);
+}
+
+/* Selection */
+.notion-editor ::selection {
+  @apply bg-blue-200 dark:bg-blue-900/50;
+}
+
+/* =====================================================
+   SCROLLBAR
+   ===================================================== */
+.scrollbar-thin::-webkit-scrollbar          { width: 4px; }
+.scrollbar-thin::-webkit-scrollbar-track    { background: transparent; }
+.scrollbar-thin::-webkit-scrollbar-thumb    { @apply bg-gray-300 dark:bg-gray-700 rounded-full; }
+
+/* =====================================================
+   MOBILE — touch improvements
+   ===================================================== */
+@media (max-width: 640px) {
+  .notion-editor h1 { @apply text-2xl; }
+  .notion-editor h2 { @apply text-xl; }
+}
+
+/* Prevent iOS zoom on input focus */
+input, textarea, [contenteditable] {
+  font-size: 16px;
+}
