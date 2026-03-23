@@ -47,7 +47,7 @@ Funciona no navegador e pode ser instalado no celular como aplicativo nativo (PW
 
 ## 🖥️ Screenshots
 
-> *(adicione screenshots aqui após o deploy)*
+> *(futuramente adicinaremos)*
 
 ---
 
@@ -135,6 +135,7 @@ Adicione as variáveis de ambiente em **Vercel → Settings → Environment Vari
 - [ ] Compartilhamento de páginas (links públicos)
 - [ ] Histórico de versões
 - [ ] Upload de imagens
+      (futuramente vou adicionar essas ultimas "etapas")
 
 ---
 
